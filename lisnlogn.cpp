@@ -25,3 +25,24 @@ int LongestIncreasingSubsequenceLength(std::vector<int>& v)
     return length;  
 }  
 //nlogn soln
+
+int lis( int arr[], int n )  
+{  
+    int lis[n];  // only works for arrays not vector
+   
+    lis[0] = 1;    
+  
+    /* Compute optimized LIS values in  
+       bottom up manner */
+    for (int i = 1; i < n; i++ )  
+    { 
+        lis[i] = 1; 
+        for (int j = 0; j < i; j++ )   
+            if ( arr[i] > arr[j] && lis[i] < lis[j] + 1)  
+                lis[i] = lis[j] + 1;  
+    } 
+  
+    // Return maximum value in lis[] 
+    return *max_element(lis, lis+n); 
+}  
+// n2 soln
