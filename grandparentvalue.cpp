@@ -43,3 +43,40 @@ public:
         
     }
 };
+
+
+///////////////////////////////////////
+class Solution { //using the parent queue to manage both son and grandparent
+public:
+   void traversal(queue<TreeNode*>& parent, TreeNode* curr){
+       // TreeNode* curr=root;
+       if(curr==NULL)
+           return;
+       
+       if(curr->val%2==0){
+           if(curr->left!=NULL)
+               parent.push(curr->left);
+           if(curr->right!=NULL)
+               parent.push(curr->right);
+       }
+       traversal(parent,curr->left);
+       traversal(parent,curr->right);
+   }
+           
+   int sumEvenGrandparent(TreeNode* root) {
+       
+       queue<TreeNode*> parent;
+       traversal(parent,root);
+       int sum=0;
+       while(parent.empty()==false){
+           TreeNode* curr=parent.front();
+           parent.pop();
+           if(curr->left!=NULL)
+               sum+=(curr->left)->val;
+           if(curr->right!=NULL)
+               sum+=(curr->right)->val;
+       }
+       return sum;
+   }
+       
+};

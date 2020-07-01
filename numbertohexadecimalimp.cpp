@@ -28,3 +28,27 @@ public:
         return ans;
     }
 };
+
+///using unsigned int is a good way to deal with this
+class Solution {
+public:
+    string toHex(int num) {
+        char itoh[16] = {'0', '1','2', '3', '4', '5', '6', '7', '8',
+                         '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        string result="";
+        
+        //this basically does the two complement.
+        //i.e., that is INT_MAX - num if it's negative.
+        unsigned int num_non_negative = num;
+        
+        while(num_non_negative>=16){
+            int remainder = num_non_negative%16;
+            num_non_negative = num_non_negative/16;
+            result=itoh[remainder]+result;
+        }
+        
+        result=itoh[num_non_negative]+result;
+        
+        return result;
+    }
+};

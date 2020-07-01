@@ -25,7 +25,7 @@ public:
     {
         if(root==NULL) return ;
         
-        if(root->left==NULL && root->right==NULL && currlevel+1 == maxlevel)
+        if(root->left==NULL && root->right==NULL && currlevel+1 == maxlevel) //currlevel plus 1 islie kia since initially 0 se start kia
             sum+=root->val;
         
         findsum(root->left,sum,currlevel+1);
@@ -39,3 +39,37 @@ public:
         return sum;
     }
 };
+
+//best soln-
+class Solution {
+    
+    int sum;
+    int maxDepth;
+    
+    public int deepestLeavesSum(TreeNode root) {
+        
+       return recuressiveSum(root,0);
+    }
+    
+    public int recuressiveSum(TreeNode root,int count){
+        
+        if(root == null)
+            return 0;
+        count++;
+        
+        if(root.left == null && root.right == null){
+            
+            if(count>maxDepth){
+                sum = 0;
+                sum+=root.val;
+                maxDepth = count;
+            } else if(count == maxDepth)
+                sum+=root.val;
+        }
+        recuressiveSum(root.left,count);
+        recuressiveSum(root.right,count);
+        return sum;
+    }
+    
+    
+}
