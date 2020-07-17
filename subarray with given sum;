@@ -1,0 +1,23 @@
+subarray with given sum;
+
+
+TWO POINTER APPROACH
+
+int left =0,right =0;
+while(right<n)
+{
+	
+}
+
+BETTER WAY IS PREFIX SUM IF SPACE COMPLEXITY IS NOT A PROBLEM
+
+Single traversal -- increase count when u get a prefix sum = k ... now find curr_sum-k == val  (HASHMAPPPPPPPPPPPPPPPPPPPPPPP)
+while(i<n)
+{
+	curr_sum+=nums[i];
+if(curr_sum == k)
+count+=1;
+if(m.find(curr_sum-k))
+	count+= m[curr_sum-k];   O(n) space complexity bhi O(n)
+}
+

@@ -1,0 +1,87 @@
+Longest common substring
+	    int dp[X+1][Y+1];
+	    int lcs = 0;
+	    int x1,y1;
+	    for(int i=0;i<=X;++i)
+	        dp[i][0]=0;
+	    for(int i=0;i<=Y;++i)
+	        dp[0][i]=0;
+if(s[i-1]==s[j-1])
+{
+	dp[i][j] = 1+dp[i-1][j-1];
+	 if(lcs < dp[i][j])
+	                {
+	                    lcs = dp[i][j];
+	                    x1 = i;
+	                    y1 = j;
+	                }
+}
+else
+dp[i][j]=0;
+
+
+
+LCS longest common subsequence
+
+
+ABCDGH
+AEDFHR 
+
+ans - ADH
+
+if(s[i-1]==s[j-1])
+	dp[i][j] = 1+dp[i-1][j-1];
+else
+	dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+
+LIS
+
+
+lis[0]=1;
+for(int i=1;i<n;i++)
+{	lis[i]= 1;
+	for(int j=0;j<i;j++)
+	{
+		if(arr[i]>arr[j]) //increasing to bnao
+		lis[i] = max(lis[i],lis[j]+1);
+	}
+}
+
+
+
+
+Max Chain length
+(5,24) (15,28) (27,40) (39,60) (50,90)
+
+
+DP problem 
+1. sort by 2nd value
+2. and use LIS with condition
+ arr[i][0] >= arr[j][1]
+
+
+ Min edit distance
+ convert s1 to s2 abc to bcd
+ m = s1.size();
+ n = s2.size();
+ for(int i=0;i<=m;i++)
+ {
+ 	for(int j=0;j<=n;j++)
+ 	{
+ 		if(i==0)
+ 		dp[i][j] = j;
+ 		if(j==0)
+ 		dp[i][j] = i;
+
+ 		else if(str1[i-1]==str2[j-1])
+ 		dp[i][j] =dp[i-1][j-1];
+ 		else
+ 		dp[i][j] = 1 + min(min(dp[i][j-1],dp[i-1][j]),dp[i-1][j-1]);
+ 	}
+ 	return dp[m][n];
+ }
+ Remember no. of bits of N hota h log base 2 N
+
+
+Moore voting algo me candidate nikaalne k baad bhi U HAVE TO VERIFY WHETHER IT IS MAJORITY OR NOT...
+

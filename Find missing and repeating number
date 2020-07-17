@@ -1,0 +1,19 @@
+Find missing and repeating number
+
+1. sort krke aa skta h O(nlogn)
+2. bool present[];
+traverse left to right
+present[arr[i]]== true; if arr[i]==false;
+and then traverse present array me dekho which one is false still
+
+
+3. best method
+n*n+1 / 2 = sum
+sum of square = n(n+1)(2n+1)/6
+
+Now let missing no=x and repeating be y
+
+so by mathematically, Sum N - Sum arr  = x-y 
+now  x2 - y2 = sum2n -sum2arr
+
+matlb x+y * x-y = known bs nikaal lo

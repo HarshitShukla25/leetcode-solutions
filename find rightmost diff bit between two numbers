@@ -1,0 +1,9 @@
+find rightmost diff bit between two numbers
+
+mask=1;
+counter=1;
+while((mask&a) == (mask&b))
+{
+	mask<<=1;
+	counter+=1;
+}

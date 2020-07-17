@@ -1,0 +1,18 @@
+Count no. of strings with the given prefix
+
+ababc
+abaxy
+abcd 
+adb
+
+Count with prefix ab so 3
+
+
+USE TRIEEEEEEEEEEEEEEEEEEEE
+
+struct TrieNode
+{
+	char data;
+	int pc; //prefix count jb bhi word insert kro pc ++ krte jao 
+	TrieNode* child[26];
+}

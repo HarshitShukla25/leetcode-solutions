@@ -1,0 +1,7 @@
+last ant on rod goood problem
+https://www.youtube.com/watch?v=DFLoQSl50Fk&list=PLEJXowNB4kPxQIN2dCUAnQ_92HIziG4x6&index=51
+if(pos>neg)
+return neg+1;
+else
+return neg;
+
